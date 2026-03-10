@@ -9,7 +9,9 @@ def mostrar_bienvenida():
     print("¡Intenta hacerlo en la menor cantidad de intentos posible!\n")
 
 def choose_difficulty():
-    """Permite al usuario elegir el nivel de dificultad y retorna el rango."""
+    """
+    Permite al usuario elegir el nivel de dificultad y retorna
+    el rango mínimo y máximo del número a adivinar."""
     print("Selecciona nivel de dificultad:")
     print("1. Fácil (1 - 10)")
     print("2. Medio (1 - 20)")
