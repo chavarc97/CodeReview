@@ -1,5 +1,13 @@
 import random
 
+def mostrar_bienvenida():
+    print("===================================")
+    print("Bienvenido al juego Adivina el Número")
+    print("===================================")
+    print("Debes adivinar el número secreto.")
+    print("Después de cada intento te diré si el número es más alto o más bajo.")
+    print("¡Intenta hacerlo en la menor cantidad de intentos posible!\n")
+
 
 def generate_secret_number(min_val=1, max_val=20):
     """Genera y retorna un número aleatorio entre min_val y max_val."""
@@ -35,6 +43,8 @@ def evaluate_guess(guess, target):
 
 
 def start_game():
+    """Muestra el mensaje de bienvenida y las instrucciones al ejecutar el juego"""
+    mostrar_bienvenida()
     """Función principal que controla el flujo del juego."""
     number = generate_secret_number(1, 20)
     attempts = 0
