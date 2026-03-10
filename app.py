@@ -5,7 +5,16 @@ def startGame():
     attempts = 0
     print("Adivina el número entre 1 y 20")
     while guess != number:
-        guess = int(input("Ingresa tu intento: "))
+
+        while True:
+            try:
+                guess = int(input("Ingresa tu intento: "))
+                break
+
+            except ValueError:
+                print("Error: ValueError not an int" )
+                continue
+
         attempts += 1
         if guess < number:
             print("Muy bajo")
@@ -15,6 +24,7 @@ def startGame():
             print("¡Correcto!")
         else:
             print("Error")
+
     print("Número de intentos:", attempts)
 
 
