@@ -8,6 +8,24 @@ def mostrar_bienvenida():
     print("Después de cada intento te diré si el número es más alto o más bajo.")
     print("¡Intenta hacerlo en la menor cantidad de intentos posible!\n")
 
+def choose_difficulty():
+    """Permite al usuario elegir el nivel de dificultad y retorna el rango."""
+    print("Selecciona nivel de dificultad:")
+    print("1. Fácil (1 - 10)")
+    print("2. Medio (1 - 20)")
+    print("3. Difícil (1 - 50)")
+
+    while True:
+        option = input("Elige una opción (1/2/3): ")
+
+        if option == "1":
+            return 1, 10
+        elif option == "2":
+            return 1, 20
+        elif option == "3":
+            return 1, 50
+        else:
+            print("Opción no válida. Intenta de nuevo.")
 
 def generate_secret_number(min_val=1, max_val=20):
     """Genera y retorna un número aleatorio entre min_val y max_val."""
@@ -45,13 +63,14 @@ def evaluate_guess(guess, target):
 def start_game():
     """Muestra el mensaje de bienvenida y las instrucciones al ejecutar el juego"""
     mostrar_bienvenida()
+    min_val, max_val = choose_difficulty()
     """Función principal que controla el flujo del juego."""
-    number = generate_secret_number(1, 20)
+    number = generate_secret_number(min_val, max_val)
     attempts = 0
     attempts_limit = 100
 
-    print("Adivina el número entre 1 y 20")
-    
+    print(f"Adivina el número entre {min_val} y {max_val}")
+
     while True:
         attempts_limit = int(input("Ingresa el numero de intentos maximo 1-100"))
 
