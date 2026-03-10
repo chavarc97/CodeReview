@@ -8,6 +8,16 @@ def generate_secret_number(min_val=1, max_val=20):
 
 def get_user_guess(prompt="Ingresa tu intento: "):
     """Solicita al usuario un intento y retorna el número ingresado."""
+    
+    while True:
+            try:
+                prompt = int(input("Ingresa tu intento: "))
+                break
+
+            except ValueError:
+                print("Error: ValueError not an int" )
+                continue
+
     return int(input(prompt))
 
 
