@@ -38,15 +38,29 @@ def start_game():
     """Función principal que controla el flujo del juego."""
     number = generate_secret_number(1, 20)
     attempts = 0
+    attempts_limit = 100
 
     print("Adivina el número entre 1 y 20")
+    
+    while True:
+        attempts_limit = int(input("Ingresa el numero de intentos maximo 1-100"))
+
+        if(attempts_limit < 0 or attempts_limit > 100):
+            print("Numero no valido")
+            continue
+
+        else: break
+
 
     while True:
         guess = get_user_guess()
         attempts += 1
-
+        
         is_correct = evaluate_guess(guess, number)
         if is_correct:
+            break
+
+        if(attempts == attempts_limit):
             break
 
     print("Número de intentos:", attempts)
